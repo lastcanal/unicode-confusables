@@ -1,4 +1,4 @@
-import CONFUSABLES_DATA from './confusables.json'
+import CONFUSABLES_DATA from '../data/confusables.json'
 
 const CONFUSABLES: Record<string, string> = CONFUSABLES_DATA
 

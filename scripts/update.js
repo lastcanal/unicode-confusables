@@ -37,9 +37,9 @@ https.get('https://unicode.org/Public/security/10.0.0/confusables.txt', (resp) =
 
   resp.on('end', () => {
     process(extra)
-    const path = "src/confusables.json"
+    const path = "data/confusables.json"
     console.log(`\nWriting ${entries} entries to ${path}`)
-    fs.writeFileSync(path, JSON.stringify(map))
+    fs.writeFileSync(path, JSON.stringify(map, null, ' '), 'utf8')
   });
 
 }).on("error", (err) => {
