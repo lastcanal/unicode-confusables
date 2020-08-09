@@ -1,12 +1,14 @@
 {
-  "name": "unicode-confusable",
+  "name": "unicode-confusables",
   "version": "0.1.0",
-  "description": "Utility for finding confusing unicode",
+  "description": "Utility for finding confusing unicode in strings",
   "author": "Ty <lastcanal@gmail.com>",
   "main": "index.js",
+  "types": "index.d.ts",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "node scripts/update.js"
   },
   "devDependencies": {
     "mocha": "^8.1.1"
