@@ -21,7 +21,6 @@ function makeSkeleton (string) {
 function isConfusing (string) {
   const skeleton = makeSkeleton(string)
   const original = [...string]
-
   for (var i = 0, l = skeleton.length; i < l; i++) {
     if (skeleton[i] !== original[i]) return true
   }
@@ -44,7 +43,6 @@ function confusables (string) {
     } else {
       acc.push({ point, similarTo: target })
     }
-
 
     return acc
   }, [])
