@@ -1,0 +1,17 @@
+{
+  "name": "unicode-confusable",
+  "version": "0.1.0",
+  "description": "Utility for finding confusing unicode",
+  "author": "Ty <lastcanal@gmail.com>",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "unicode-confusables-data": "^10.0.0-20170721"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.1"
+  }
+}
