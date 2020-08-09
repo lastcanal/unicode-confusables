@@ -717,11 +717,6 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-unicode-confusables-data@^10.0.0-20170721:
-  version "10.0.0-20170721"
-  resolved "https://registry.yarnpkg.com/unicode-confusables-data/-/unicode-confusables-data-10.0.0-20170721.tgz#a86b37da18f4750af70295791f3de68a0787186c"
-  integrity sha1-qGs32hj0dQr3ApV5Hz3migeHGGw=
-
 which-module@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"

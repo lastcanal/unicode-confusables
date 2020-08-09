@@ -1,4 +1,4 @@
-const CONFUSABLES = require('unicode-confusables-data')
+const CONFUSABLES = require('./data/confusables.json')
 
 const ZERO_WIDTH = ''
 const zeroWidthPoints = new Set([
