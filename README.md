@@ -55,6 +55,15 @@ true
   { point: 'カ', similarTo: '力' },
   { point: 'ナ' }
 ]
+
+// It also thinks some parts of ascii confusing
+> confusables('mI01')
+[
+  { point: 'm', similarTo: 'rn' },
+  { point: 'I', similarTo: 'l' },
+  { point: '0', similarTo: 'O' },
+  { point: '1', similarTo: 'l' }
+]
 ```
 
 ### Updating
