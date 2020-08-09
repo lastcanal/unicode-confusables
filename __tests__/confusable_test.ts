@@ -1,7 +1,7 @@
-const { isConfusing, confusables, rectifyConfusion } = require('.')
-const assert = require('assert')
+import { isConfusing, confusables, rectifyConfusion, ConfusablePoint } from '../src'
+import assert from 'assert'
 
-const CONFUSING = {
+const CONFUSING: Record<string, ConfusablePoint[]> = {
   'vita‍lik': [
     { point: 'v' },
     { point: 'i' },
@@ -92,14 +92,14 @@ const NOT_CONFUSING = [
 describe('isConfusing', () => {
 
   it('classifies confusable', () => {
-    Object.keys(CONFUSING).forEach((string) => {
-      assert(isConfusing(string), string)
+    Object.keys(CONFUSING).forEach((input) => {
+      assert(isConfusing(input), input)
     })
   })
 
   it('doesn\'t classify non confusable', () => {
-    NOT_CONFUSING.forEach((string) => {
-      assert.equal(isConfusing(string), false, string)
+    NOT_CONFUSING.forEach((input) => {
+      assert.equal(isConfusing(input), false, input)
     })
   })
 
@@ -108,15 +108,15 @@ describe('isConfusing', () => {
 describe('confusables', () => {
 
   it('classifies confusable', () => {
-    Object.keys(CONFUSING).forEach((string) => {
-      assert.deepEqual(confusables(string), CONFUSING[string], string)
+    Object.keys(CONFUSING).forEach((input) => {
+      assert.deepEqual(confusables(input), CONFUSING[input], input)
     })
   })
 
   it('doesn\'t classify non confusable', () => {
-    NOT_CONFUSING.forEach((string) => {
-      confusables(string).forEach((point) => {
-        assert.equal(point.similarTo, null, string)
+    NOT_CONFUSING.forEach((input) => {
+      confusables(input).forEach((point) => {
+        assert.equal(point.similarTo, null, input)
       })
     })
   })
@@ -136,6 +136,6 @@ describe('rectifyConfusion', () => {
   })
 
   it('doesn\'t convert non confusable', () => {
-    NOT_CONFUSING.forEach((string) => assert.equal(rectifyConfusion(string), string))
+    NOT_CONFUSING.forEach((input) => assert.equal(rectifyConfusion(input), input))
   })
 })

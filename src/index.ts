@@ -1,4 +1,11 @@
-const CONFUSABLES = require('unicode-confusables-data')
+import CONFUSABLES_DATA from './confusables.json'
+
+const CONFUSABLES: Record<string, string> = CONFUSABLES_DATA
+
+export interface ConfusablePoint {
+  point: string
+  similarTo?: string
+}
 
 const ZERO_WIDTH = ''
 const zeroWidthPoints = new Set([
@@ -10,17 +17,17 @@ const zeroWidthPoints = new Set([
   '\u2029', // paragraph separator,
 ])
 
-function makeSkeleton (string) {
-  return [...string].reduce((acc, point) => {
+const makeSkeleton = (input: string): string[] => {
+  return [...input].reduce((acc: string[], point: string): string[] => {
     if (zeroWidthPoints.has(point)) return acc
     acc.push(CONFUSABLES[point] || point)
     return acc
   }, [])
 }
 
-function isConfusing (string) {
-  const skeleton = makeSkeleton(string)
-  const original = [...string]
+export const isConfusing = (input: string): boolean => {
+  const skeleton = makeSkeleton(input)
+  const original = [...input]
 
   for (var i = 0, l = skeleton.length; i < l; i++) {
     if (skeleton[i] !== original[i]) return true
@@ -29,15 +36,15 @@ function isConfusing (string) {
   return false
 }
 
-function confusables (string) {
-  const skeleton = makeSkeleton(string)
-  const original = [...string]
+export const confusables = (input: string): ConfusablePoint[] => {
+  const skeleton = makeSkeleton(input)
+  const original = [...input]
   let offset = 0
 
-  return original.reduce((acc, point, index) => {
+  return original.reduce((acc: ConfusablePoint[], point, index): ConfusablePoint[] => {
     const target = skeleton[index - offset]
     if (target === point || !target) {
-      acc.push({point: point})
+      acc.push({ point: point })
     } else if (zeroWidthPoints.has(point)) {
       acc.push({ point, similarTo: ZERO_WIDTH })
       offset = offset + 1
@@ -45,19 +52,12 @@ function confusables (string) {
       acc.push({ point, similarTo: target })
     }
 
-
     return acc
   }, [])
 }
 
-function rectifyConfusion (string) {
-  return confusables(string).map(({ point, similarTo }) => (
+export const rectifyConfusion = (input: string): string => {
+  return confusables(input).map(({ point, similarTo }) => (
     similarTo == null ? point : similarTo
   )).join('')
-}
-
-module.exports = {
-  isConfusing,
-  confusables,
-  rectifyConfusion,
 }

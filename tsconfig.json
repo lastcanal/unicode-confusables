@@ -1,0 +1,34 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"declarationDir": "dist",
+    "downlevelIteration": true,
+		"experimentalDecorators": true,
+		"importHelpers": false,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "dist",
+		"removeComments": false,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+		"inlineSources": true,
+		"strict": true,
+		"target": "es6",
+    "esModuleInterop": true
+	},
+	"typedocOptions": {
+		"exclude": "**/*.test.ts",
+		"excludeNotExported": true,
+		"excludePrivate": true,
+		"hideGenerator": true,
+		"mode": "modules",
+		"out": "docs",
+		"theme": "default"
+	},
+	"include": [
+		"./src/**/*.ts"
+	]
+}

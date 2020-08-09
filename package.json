@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "description": "Utility for finding confusing unicode",
   "author": "Ty <lastcanal@gmail.com>",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
-  "dependencies": {
-    "unicode-confusables-data": "^10.0.0-20170721"
-  },
   "scripts": {
-    "test": "mocha"
+    "test": "jest --coverage",
+    "build": "tsc",
+    "update": "node scripts/update.js"
   },
   "devDependencies": {
-    "mocha": "^8.1.1"
+    "@types/assert": "^1.5.1",
+    "@types/jest": "^26.0.9",
+    "jest": "^26.2.2",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7"
   }
 }
