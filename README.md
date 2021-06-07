@@ -57,10 +57,8 @@ true
 ]
 
 // It also thinks some parts of ascii confusing
-> confusables('mI01')
+> confusables('01')
 [
-  { point: 'm', similarTo: 'rn' },
-  { point: 'I', similarTo: 'l' },
   { point: '0', similarTo: 'O' },
   { point: '1', similarTo: 'l' }
 ]

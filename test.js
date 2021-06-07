@@ -86,7 +86,9 @@ const CONFUSING = {
 const NOT_CONFUSING = [
   'vitalik',
   '👻', // ghost emoji
-  '日本刀'
+  '日本刀',
+  'markd.eth',
+  'Indiana'
 ]
 
 describe('isConfusing', () => {

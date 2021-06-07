@@ -1,6 +1,6 @@
 {
   "name": "unicode-confusables",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility for finding confusing unicode in strings",
   "author": "Ty <lastcanal@gmail.com>",
   "main": "index.js",
