@@ -15,6 +15,11 @@ function logProgress (entries) {
   process.stdout.write(`Processing ${entries} entries...`)
 }
 
+function isASCIILetter (char) {
+  const code = char.charCodeAt(0)
+  return (code >= 65 && code <= 90) || (code >= 97 && code <=122)
+}
+
 https.get('https://unicode.org/Public/security/10.0.0/confusables.txt', (resp) => {
   let extra = ''
   let entries = 0
@@ -25,8 +30,10 @@ https.get('https://unicode.org/Public/security/10.0.0/confusables.txt', (resp) =
     if (!line || line[0] === '#') return;
     let split = line.split(';');
     let from = extract(split[0]);
-    map[from] = extract(split[1]);
-    logProgress(entries += 1)
+    if (!isASCIILetter(from)) {
+      map[from] = extract(split[1]);
+      logProgress(entries += 1)
+    }
   }
 
   resp.on('data', (chunk) => {
